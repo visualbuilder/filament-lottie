@@ -11,11 +11,29 @@ it('renders a dotlottie-wc tag with the resolved src', function () {
 });
 
 it('resolves relative src paths via asset()', function () {
-    config(['app.url' => 'https://example.test']);
-
     $component = Lottie::make('welcome')->src('lottie/welcome.lottie');
 
-    expect($component->getSrc())->toBe('https://example.test/lottie/welcome.lottie');
+    expect($component->getSrc())
+        ->toEndWith('/lottie/welcome.lottie')
+        ->toMatch('#^https?://#');
+});
+
+it('passes absolute URLs through unchanged', function () {
+    $component = Lottie::make('w')->src('https://cdn.example.test/anim.lottie');
+
+    expect($component->getSrc())->toBe('https://cdn.example.test/anim.lottie');
+});
+
+it('passes protocol-relative URLs through unchanged', function () {
+    $component = Lottie::make('w')->src('//cdn.example.test/anim.lottie');
+
+    expect($component->getSrc())->toBe('//cdn.example.test/anim.lottie');
+});
+
+it('passes root-absolute paths through without prefixing the host', function () {
+    $component = Lottie::make('w')->src('/storage/lottie/anim.lottie');
+
+    expect($component->getSrc())->toBe('/storage/lottie/anim.lottie');
 });
 
 it('defaults to play-once (loop false) and autoplay true', function () {

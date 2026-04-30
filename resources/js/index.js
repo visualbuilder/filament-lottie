@@ -15,13 +15,33 @@ const RESPECT_RM_ATTR = 'data-vb-lottie-respect-reduced-motion'
 const prefersReducedMotion = () =>
     window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true
 
-/** Plays the animation from the start. Safe to call before the element has finished hydrating — dotlottie queues the call. */
-const play = (el) => {
+/**
+ * Replay the animation from frame 0. dotlottie-wc exposes its imperative API
+ * on el.dotLottie, populated once the 'load' event fires. Three races to
+ * guard:
+ *   1. play() called before load — queue via 'load' event
+ *   2. load already fired before our click handler ran — poll briefly
+ *   3. animation already at its end frame — stop() seeks to 0 first
+ */
+const invokePlay = (el) => {
+    if (!el.dotLottie) return false
     try {
-        el.play?.()
-    } catch {
-        /* no-op — element not yet ready, autoplay attribute will cover */
+        el.dotLottie.stop()
+        el.dotLottie.play()
+    } catch { /* element not yet ready */ }
+    return true
+}
+
+const play = (el) => {
+    if (invokePlay(el)) return
+    el.addEventListener('load', () => invokePlay(el), { once: true })
+    let attempts = 60
+    const tick = () => {
+        if (--attempts <= 0) return
+        if (invokePlay(el)) return
+        requestAnimationFrame(tick)
     }
+    requestAnimationFrame(tick)
 }
 
 const wireOnComplete = (el) => {
