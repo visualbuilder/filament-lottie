@@ -1,0 +1,15 @@
+{
+  "name": "@visualbuilder/lottie",
+  "private": true,
+  "description": "Internal build for visualbuilder/lottie — bundles @lottiefiles/dotlottie-wc into resources/dist/.",
+  "scripts": {
+    "build": "node bin/build.js",
+    "watch": "node bin/build.js --watch"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-wc": "^0.6"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23"
+  }
+}
