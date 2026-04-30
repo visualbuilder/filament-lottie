@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Blade;
 it('renders the <x-lottie> blade component with mapped attributes', function () {
     config(['app.url' => 'https://example.test', 'lottie.default_size' => '120px']);
 
-    $rendered = Blade::render('<x-lottie::lottie src="lottie/welcome.lottie" size="80px" :autoplay="true" />');
+    $rendered = Blade::render('<x-lottie src="lottie/welcome.lottie" size="80px" :autoplay="true" />');
 
     expect($rendered)
         ->toContain('<dotlottie-wc')
@@ -20,7 +20,7 @@ it('renders the <x-lottie> blade component with mapped attributes', function () 
 it('defaults to play-once (no loop attribute) when loop is omitted', function () {
     config(['lottie.default_loop' => false]);
 
-    $rendered = Blade::render('<x-lottie::lottie src="https://example.test/w.lottie" />');
+    $rendered = Blade::render('<x-lottie src="https://example.test/w.lottie" />');
 
     expect($rendered)->not->toContain(' loop ');
 });

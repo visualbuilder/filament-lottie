@@ -7,6 +7,7 @@ namespace Visualbuilder\Lottie;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Visualbuilder\Lottie\View\Components\Lottie as LottieBladeComponent;
@@ -34,9 +35,9 @@ class LottieServiceProvider extends PackageServiceProvider
             ], package: $this->getAssetPackageName());
         }
 
-        $this->loadViewComponentsAs('lottie', [
-            LottieBladeComponent::class,
-        ]);
+        // Register the Blade component as <x-lottie /> directly (no prefix).
+        // Using loadViewComponentsAs would prefix-mangle the tag to <x-lottie-lottie>.
+        Blade::component('lottie', LottieBladeComponent::class);
     }
 
     protected function getAssetPackageName(): string
