@@ -10,6 +10,6 @@
     "@lottiefiles/dotlottie-wc": "^0.6"
   },
   "devDependencies": {
-    "esbuild": "^0.23"
+    "esbuild": "^0.25"
   }
 }
