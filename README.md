@@ -1,4 +1,4 @@
-# visualbuilder/lottie
+# visualbuilder/filament-lottie
 
 Lottie animation Schema component and Blade component for Filament 5 panels.
 
@@ -10,7 +10,7 @@ Bundles [`@lottiefiles/dotlottie-wc`](https://www.npmjs.com/package/@lottiefiles
 ## Install
 
 ```bash
-composer require visualbuilder/lottie
+composer require visualbuilder/filament-lottie
 ```
 
 The dist JS and CSS are auto-registered on every Filament page. Disable via `config('lottie.auto_register_assets', false)` and register the assets yourself if you want load-on-request behaviour.

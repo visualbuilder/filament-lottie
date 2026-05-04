@@ -1,5 +1,5 @@
 {
-    "name": "visualbuilder/lottie",
+    "name": "visualbuilder/filament-lottie",
     "description": "Lottie animation Schema component and Blade component for Filament panels.",
     "keywords": [
         "visualbuilder",
@@ -9,7 +9,7 @@
         "schema",
         "component"
     ],
-    "homepage": "https://github.com/visualbuilder/lottie",
+    "homepage": "https://github.com/visualbuilder/filament-lottie",
     "license": "MIT",
     "type": "library",
     "authors": [

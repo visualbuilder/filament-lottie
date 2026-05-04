@@ -1,7 +1,7 @@
 {
-  "name": "@visualbuilder/lottie",
+  "name": "@visualbuilder/filament-lottie",
   "private": true,
-  "description": "Internal build for visualbuilder/lottie — bundles @lottiefiles/dotlottie-wc into resources/dist/.",
+  "description": "Internal build for visualbuilder/filament-lottie — bundles @lottiefiles/dotlottie-wc into resources/dist/.",
   "scripts": {
     "build": "node bin/build.js",
     "watch": "node bin/build.js --watch"

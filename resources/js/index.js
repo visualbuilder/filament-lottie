@@ -1,5 +1,5 @@
 /**
- * visualbuilder/lottie — entry point bundled by bin/build.js into
+ * visualbuilder/filament-lottie — entry point bundled by bin/build.js into
  * resources/dist/visualbuilder-lottie.js.
  *
  * Imports the dotlottie web component (registers <dotlottie-wc> as a custom

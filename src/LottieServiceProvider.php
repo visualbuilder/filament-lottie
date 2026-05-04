@@ -42,6 +42,6 @@ class LottieServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): string
     {
-        return 'visualbuilder/lottie';
+        return 'visualbuilder/filament-lottie';
     }
 }

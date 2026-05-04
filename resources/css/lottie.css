@@ -1,4 +1,4 @@
-/* visualbuilder/lottie — keeps the web component flow-friendly inside Filament
+/* visualbuilder/filament-lottie — keeps the web component flow-friendly inside Filament
  * layouts and provides a sensible fallback when the dist JS hasn't loaded yet. */
 
 dotlottie-wc {
