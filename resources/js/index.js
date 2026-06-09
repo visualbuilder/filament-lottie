@@ -6,6 +6,10 @@
  * element on import side effect) and adds a tiny trigger orchestrator so
  * authors can declaratively control playback via data-vb-lottie-* attributes.
  */
+// Must precede the dotlottie-wc import: repoints the renderer WASM (via
+// window.vbLottieWasmUrl, for self-hosting under strict CSP) before the custom
+// element registers and fetches it.
+import './configure-wasm.js'
 import '@lottiefiles/dotlottie-wc'
 
 const TRIGGER_ATTR = 'data-vb-lottie-trigger'
